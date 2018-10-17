@@ -42,4 +42,5 @@ class LiveAction(core.Resource):
     _url_path = 'executions'
     _plural = 'ActionExecutions'
     _plural_display_name = 'Action executions'
-    _repr_attributes = ['status', 'action', 'start_timestamp', 'end_timestamp', 'parameters']
+    _repr_attributes = ['status', 'action', 'start_timestamp', 'end_timestamp', 'parameters',
+                        'delay']

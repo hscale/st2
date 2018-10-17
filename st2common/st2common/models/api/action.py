@@ -415,6 +415,10 @@ class LiveActionAPI(BaseAPI):
                     "on-success": NotificationSubSchemaAPI
                 },
                 "additionalProperties": False
+            },
+            "delay": {
+                "description": "How long (in milliseconds) to delay the execution before scheduling.",
+                "type": "integer",
             }
         },
         "additionalProperties": False
@@ -452,6 +456,7 @@ class LiveActionAPI(BaseAPI):
         context = getattr(live_action, 'context', dict())
         callback = getattr(live_action, 'callback', dict())
         result = getattr(live_action, 'result', None)
+        delay = getattr(live_action, 'delay', None)
 
         if getattr(live_action, 'notify', None):
             notify = NotificationsHelper.to_model(live_action.notify)
@@ -461,7 +466,7 @@ class LiveActionAPI(BaseAPI):
         model = cls.model(action=action,
                           start_timestamp=start_timestamp, end_timestamp=end_timestamp,
                           status=status, parameters=parameters, context=context,
-                          callback=callback, result=result, notify=notify)
+                          callback=callback, result=result, notify=notify, delay=delay)
 
         return model
 
