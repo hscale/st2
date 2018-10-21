@@ -417,7 +417,8 @@ class LiveActionAPI(BaseAPI):
                 "additionalProperties": False
             },
             "delay": {
-                "description": "How long (in milliseconds) to delay the execution before scheduling.",
+                "description": ("How long (in milliseconds) to delay the execution before"
+                                "scheduling."),
                 "type": "integer",
             }
         },
